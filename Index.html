@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>CarWashApp</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+function initMap() {
+  
+  var posicionDuoc = {lat: -33.500201, lng: -70.615791};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: posicionDuoc
+  });
+
+  var contentString = '<div id="content"><div id="siteNotice"></div>'+
+      '<p><b>El Rapidito 1</b></h1>'+
+      '<div id="bodyContent"><p>Abierto desde las 10:00 hasta las 19:00</p>'+
+      '<a href="https://www.facebook.com" class="btn btn-info" role="button">Reservar hora</a></div></div>';
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+  
+var contentString1 = '<div id="content"><div id="siteNotice"></div>'+
+      '<p><b>El Rapidito 2</b></h1>'+
+      '<div id="bodyContent"><p>Abierto desde las 9:00 hasta las 15:00</p>'+
+      '<a href="https://www.facebook.com" class="btn btn-info" role="button">Reservar hora</a></div></div>';
+  var infowindow1 = new google.maps.InfoWindow({
+    content: contentString1
+  });
+
+var posicion1 = {lat: -33.500554, lng: -70.622419};
+var marker1 = new google.maps.Marker({
+    position: posicion1,
+    map: map,
+    title: 'El Rapidito'
+  });
+  marker1.addListener('click', function() {
+    infowindow1.open(map, marker1);
+  });
+
+  var marker = new google.maps.Marker({
+    position: posicionDuoc,
+    map: map,
+    title: 'El Rapidito'
+  });
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+}
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXC2YNKyDBRUkvTiNEmwRFK12QrlCg304&signed_in=true&callback=initMap" async defer></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+  
